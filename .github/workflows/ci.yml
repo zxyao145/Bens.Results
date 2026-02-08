@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore --configuration Debug
+
+    - name: Test
+      run: dotnet test --no-build --configuration Debug --verbosity normal
+
+    - name: Pack NuGet packages (Release)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        # Build and pack ClaudeCodeSdk first
+        dotnet build Bens.Results.slnx -c Release
+        dotnet test Bens.Results.slnx -c Debug
+        dotnet pack Bens.Results.slnx -c Release --no-build -o releases
