@@ -2,6 +2,10 @@
 
 An API result wrapper library for ASP.NET Core that provides a unified response format with built-in support for HTTP status codes and business error handling.
 
+## Status & Version
+
+[![NuGet Version (with prereleases)](https://img.shields.io/nuget/vpre/Bens.Results?label=Bens.Results)](https://www.nuget.org/packages/Bens.Results/) [![CI/CD](https://github.com/zxyao145/claude-code-sdk-csharp/workflows/CI/badge.svg)](https://github.com/zxyao145/Bens.Results/actions)
+
 ## Features
 
 - **Unified Response Format** - Consistent API responses with `Code`, `Title`, `Detail`, and optional `Data`
