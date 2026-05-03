@@ -15,8 +15,8 @@
 		<Nullable>enable</Nullable>
 		<NoWarn>$(NoWarn);NU1507</NoWarn>
 
-		<PackageProjectUrl>https://github.com/zxyao145/Bens</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/zxyao145/Bens</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/zxyao145/Bens.Results</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/zxyao145/Bens.Results</RepositoryUrl>
 
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
